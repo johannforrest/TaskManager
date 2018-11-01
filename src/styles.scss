@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.mat-form-field-appearance-legacy div.mat-form-field-underline {
+    height: 0;
+}
+
+div.mat-form-field-flex div.mat-form-field-infix {
+    padding-right: 5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+}

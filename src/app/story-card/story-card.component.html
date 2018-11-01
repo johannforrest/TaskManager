@@ -1,0 +1,17 @@
+<div class="story-card">
+  <mat-form-field class="input-span">
+    <input matInput class="" placeholder="Story" [(ngModel)]="story.description" />
+  </mat-form-field>
+  <ul class="task-list">
+
+    <li *ngFor="let task of story.taskList" class="task-item">
+      <mat-form-field class="input-span">
+        <input matInput class="description-input" type="textbox" placeholder="Task description" [(ngModel)]="task.description" />
+      </mat-form-field>
+      <mat-checkbox [(ngModel)]="task.completed">
+      </mat-checkbox>
+    </li>
+
+  </ul>
+  <button mat-button class="add-task" color="primary" (click)="addTask($event)">Add Task</button>
+</div>

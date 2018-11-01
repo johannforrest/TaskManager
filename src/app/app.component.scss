@@ -1,0 +1,29 @@
+.story-container {
+    width: 800px;
+    display: flex;
+}
+.story-lane {
+    height: 700px;
+    flex: 1;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.story-list {
+    background: #e7e7e7;
+    border-radius: 7px;
+    height: 80vh;
+    box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.12);
+    border: 1px solid #ddd;
+}
+
+.add-story {
+}
+
+.cdk-drag-preview {
+    border: 1px solid #ddd;
+    box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.12)
+}
+.cdk-drag-placeholder {
+    opacity: 0;
+}

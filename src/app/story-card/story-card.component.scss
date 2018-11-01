@@ -1,0 +1,39 @@
+
+
+.story-card {
+    background: white;
+    width: 100%;
+ //   display: flex;
+ //   flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 7px;
+
+
+}
+
+.task-list {
+    display: block;
+    padding: 0;
+    margin: 0;
+
+    .task-item {
+        display: flex;
+        align-items: center;
+        .task-checkbox {
+            margin: 0;
+        }
+    }
+}
+
+.input-span {
+    width: 100%;
+}
+
+.add-task {
+    
+}
+
+.mat-form-field-flex div.mat-form-field-infix {
+    padding-right: 5px;
+}
