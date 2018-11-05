@@ -1,6 +1,18 @@
 # TodoApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+This is the Angular front end for a todo Application.
+
+## Get running locally
+Clone the git repo
+
+cd into TaskManager
+
+```npm install```
+
+```ng serve```
+
+go to localhost:4200
 
 ## Development server
 
