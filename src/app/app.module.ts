@@ -6,7 +6,7 @@ import { StoryCardComponent } from './story-card/story-card.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop'
-import { MatInputModule, MatCheckboxModule, MAT_CHECKBOX_CLICK_ACTION, MatButtonModule} from '@angular/material';
+import { MatInputModule, MatCheckboxModule, MAT_CHECKBOX_CLICK_ACTION, MatButtonModule, MatIconModule, MatBadgeModule, MatTextareaAutosize} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -21,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
+    MatIconModule,
+    MatBadgeModule, 
     BrowserAnimationsModule,
     BrowserModule
   ],

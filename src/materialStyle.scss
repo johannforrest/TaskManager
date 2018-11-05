@@ -1,0 +1,98 @@
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~@angular/material/theming';
+@include mat-core();
+$my-green: (
+  50: #00e676,
+  100: #00e676,
+  200: #00c464,
+  300: #00e676,
+  400: #00e676,
+  500: #00e676,
+  600: #00e676,
+  700: #00e676,
+  800: #00e676,
+  900: #00e676,
+  A100: #00e676,
+  A200: #00e676,
+  A400: #00e676,
+  A700: #05fc84,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$my-purple: (
+  50: #673ab7,
+  100: #673ab7,
+  200: #573199,
+  300: #673ab7,
+  400: #673ab7,
+  500: #673ab7,
+  600: #673ab7,
+  700: #673ab7,
+  800: #673ab7,
+  900: #673ab7,
+  A100: #673ab7,
+  A200: #673ab7,
+  A400: #673ab7,
+  A700: #673ab7,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+
+
+  $primary: mat-palette($my-green,200);
+  $accent: mat-palette($my-purple,200);
+
+  $theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);
+
+
+.mat-form-field-appearance-legacy div.mat-form-field-underline {
+    height: 0;
+}
+
+div.mat-form-field-flex div.mat-form-field-infix {
+    padding-right: 5px;
+    border-top: none;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 1.25em;
+    margin-right: 12px;
+}
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+  

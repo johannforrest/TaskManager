@@ -1,17 +1,47 @@
-<div class="story-card">
-  <mat-form-field class="input-span">
-    <input matInput class="" placeholder="Story" [(ngModel)]="story.description" />
+<div class="story-card" [class.expanded]="story.expanded">
+  <div class="delete-overlay" [class.hide]="!pendingDelete">
+    <p>
+      You have {{incompleteTaskCount}} incomplete tasks<br>
+      Are you sure you want to delete this story?
+    </p>
+    <div>
+      <button mat-flat-button color="warn" class="delete-button" (click)="closeStory()">Delete</button>
+      <button mat-flat-button (click)="cancelPendingDelete()">Cancel</button>
+
+    </div>
+  </div>
+  <div class="card-header">
+    <div [matBadge]="incompleteTaskCount || '✔'" [matBadgeColor]="incompleteTaskCount ? 'accent' : 'primary'" class="task-count"></div>
+    <mat-icon class="expand-story" (click)="toggleExpand()" [class.expand-more]="!story.expanded">expand_less</mat-icon>
+  </div>
+
+  <mat-form-field class="input-span story-input">
+    <input matInput class="story-description" placeholder="Story" [(ngModel)]="story.description" />
   </mat-form-field>
   <ul class="task-list">
 
     <li *ngFor="let task of story.taskList" class="task-item">
-      <mat-form-field class="input-span">
-        <input matInput class="description-input" type="textbox" placeholder="Task description" [(ngModel)]="task.description" />
+      <mat-icon class="close-task" (click)="closeTask(task)">close</mat-icon>
+      <mat-form-field class="input-span" color="accent">
+        <input matInput class="description-input" [class.completed]="task.completed" type="textbox" placeholder="Task"
+          [(ngModel)]="task.description" />
       </mat-form-field>
       <mat-checkbox [(ngModel)]="task.completed">
       </mat-checkbox>
     </li>
 
   </ul>
-  <button mat-button class="add-task" color="primary" (click)="addTask($event)">Add Task</button>
+  <div class="story-footer">
+    <button mat-stroked-button class="add-task" color="accent" (click)="addTask($event)">Add Task +</button>
+    <div>
+
+      <button mat-icon-button class="close-story" (click)="tryCloseStory()">
+        <mat-icon class="close-story">delete</mat-icon>
+      </button>
+      <button mat-button color="primary" (click)="complete()" *ngIf="!incompleteTaskCount && !completed">
+        Complete <mat-icon width="20px" height="20px">arrow_forward</mat-icon>
+      </button>
+    </div>
+
+  </div>
 </div>

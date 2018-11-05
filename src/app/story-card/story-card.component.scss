@@ -1,17 +1,49 @@
 
-
-.story-card {
-    background: white;
+.delete-overlay {
+    opacity: 0.9;
+    background: #ededed;
     width: 100%;
- //   display: flex;
- //   flex-direction: column;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 7px;
-
-
+    height: 100%;
+    position: absolute;
+    margin: -10px;
+    z-index: 3;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .delete-button {
+        margin-right: 36px;
+    }
 }
 
+.story-card {
+    background: #f7f7f7;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+    // to not cover the background line
+    margin: 0 -1px;
+    max-height: 58px;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.2s ease-in-out;
+    &.expanded {
+        background: white;
+        max-height: initial;
+        .task-count {
+         //   opacity: 0;
+        }
+        .story-input {
+            width: 100%;
+        }
+    }
+}
+.input-span.story-input {
+    margin-top: 10px;
+    width: 95%;
+}
 .task-list {
     display: block;
     padding: 0;
@@ -30,10 +62,64 @@
     width: 100%;
 }
 
-.add-task {
-    
+.completed {
+    color: #898989;
+    font-size: 14px;
 }
 
-.mat-form-field-flex div.mat-form-field-infix {
-    padding-right: 5px;
+.story-description {
+    &.mat-input-element {
+        font-size: 18px;
+    }
+
+}
+
+.close-task {
+    margin-bottom: 10px;
+    font-size: 16px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.expand-story {
+    position: absolute;
+    right: -4px;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    margin-top: -8px;
+    &:hover {
+        cursor: pointer;
+    }
+    &.expand-more {
+        transform: rotate(-180deg);
+    }
+}
+.card-header {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.story-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.close-story {
+    margin-right: -8px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.hide {
+    display: none;
+}
+.mat-checkbox {
+    margin-top: -22px;
+}
+
+.task-count {
+    right: 8px;
+    top: 25px;
+    transition: opacity 0.15s ease-in-out;
 }

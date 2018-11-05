@@ -1,32 +1,51 @@
-<button class="btn add-story" (click)="createStory()">Add Story</button>
+<div class="header">
+  <button mat-flat-button color="primary" class="btn add-story" (click)="createStory()">Add Story +</button>
+</div>
+
+<!-- Background pattern  -->
+<div class="background-container story-container">
+      <div class="story-lane">
+        <h3>Not Started</h3>
+        <div class="story-list line"></div>
+      </div>
+      <div class="story-lane">
+        <h3>In Progress</h3>
+        <div class="story-list line"></div>
+      </div>
+      <div class="story-lane">
+        <h3>Completed</h3>
+        <div class="story-list line"></div>
+      </div>
+</div>
+ <!-- Foreground content -->
 <div class="story-container">
   <div class="story-lane">
-    <h3>Not Started</h3>
+    <h3 class="clear">Not Started</h3>
     <div class="story-list not-started" cdkDropList #notStartedList="cdkDropList" [cdkDropListData]="notStarted"
       [cdkDropListConnectedTo]="[inProgressList, completedList]" (cdkDropListDropped)="drop($event)">
       <div cdkDrag *ngFor="let story of notStarted" class="story-item">
-        <app-story-card [story]="story">
+        <app-story-card [story]="story" [progress]="'not-started'" (removeStory)="removeStory($event)" (completeStory)="completeStory($event)">
         </app-story-card>
       </div>
     </div>
   </div>
   <div class="story-lane">
-    <h3>In Progress</h3>
+    <h3 class="clear">In Progress</h3>
     <div class="story-list in-progress" cdkDropList #inProgressList="cdkDropList" [cdkDropListData]="inProgress"
       [cdkDropListConnectedTo]="[notStartedList, completedList]" (cdkDropListDropped)="drop($event)">
-      <div cdkDrag *ngFor="let story of inProgress">
-        <app-story-card [story]="story">
+      <div cdkDrag *ngFor="let story of inProgress" class="story-item">
+        <app-story-card [story]="story" [progress]="'in-progress'" (removeStory)="removeStory($event)" (completeStory)="completeStory($event)">
         </app-story-card>
       </div>
 
     </div>
   </div>
   <div class="story-lane">
-    <h3>Completed</h3>
+    <h3 class="clear">Completed</h3>
     <div class="story-list completed" cdkDropList #completedList="cdkDropList" [cdkDropListData]="completed"
       [cdkDropListConnectedTo]="[notStartedList, inProgressList]" (cdkDropListDropped)="drop($event)">
-      <div cdkDrag *ngFor="let story of completed">
-        <app-story-card [story]="story">
+      <div cdkDrag *ngFor="let story of completed" class="story-item">
+        <app-story-card [story]="story" [progress]="'complete'" (removeStory)="removeStory($event)" (completeStory)="completeStory($event)">
         </app-story-card>
 
       </div>
